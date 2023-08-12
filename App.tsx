@@ -29,7 +29,7 @@ export default function App() {
     <View style={styles.container}>
       <TextInput placeholder="Search a city" onChangeText={setCity} />
       <Button title="test" onPress={() => getWeather()} />
-      <Text>{weatherData?.name}</Text>
+      <Text>{weatherData?.weather[0].description}</Text>
       <StatusBar style="auto" />
     </View>
   );
