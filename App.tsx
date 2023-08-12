@@ -5,8 +5,9 @@ import { Forecast } from "./models";
 // import { API_KEY } from "@env";
 
 export default function App() {
-  const [weatherData, setWeatherData] = useState<any>({});
-  const [city, setCity] = useState<string>("istanbul");
+  const [weatherData, setWeatherData] = useState<Forecast | null>(null);
+  const [city, setCity] = useState<string>("paris");
+  // const [loading, setLoading] = useState<boolean>(false);
   const apiKey = process.env.API_KEY;
   const URL_Weather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
@@ -15,6 +16,7 @@ export default function App() {
       .then((res) => res.json())
       .then((data) => {
         setWeatherData(data);
+
         return console.log(weatherData);
       });
   };
@@ -23,7 +25,7 @@ export default function App() {
     <View style={styles.container}>
       <TextInput placeholder="Search a city" onChangeText={setCity} />
       <Button title="test" onPress={() => getWeather()} />
-      <Text>{weatherData?.weather[0]?.description}</Text>
+      <Text>{weatherData?.name}</Text>
       <StatusBar style="auto" />
     </View>
   );
