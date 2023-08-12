@@ -21,6 +21,10 @@ export default function App() {
       });
   };
 
+  useEffect(() => {
+    getWeather();
+  }, []);
+
   return (
     <View style={styles.container}>
       <TextInput placeholder="Search a city" onChangeText={setCity} />
