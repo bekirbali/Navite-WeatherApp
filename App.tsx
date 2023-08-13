@@ -1,7 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TextInput,
+  SafeAreaView,
+} from "react-native";
 import { Forecast } from "./models";
+import Search from "./components/Search";
 // import { API_KEY } from "@env";
 
 export default function App() {
@@ -27,9 +35,15 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <TextInput placeholder="Search a city" onChangeText={setCity} />
-      <Button title="test" onPress={() => getWeather()} />
-      <Text>{weatherData?.weather[0].description}</Text>
+      <View style={styles.search}>
+        <Search setCity={setCity} getWeather={getWeather} />
+      </View>
+      <View style={styles.data}>
+        <Text>{weatherData?.weather[0].description}</Text>
+        <Text>{weatherData?.name}</Text>
+        <Text>{weatherData?.sys.country}</Text>
+      </View>
+
       <StatusBar style="auto" />
     </View>
   );
@@ -40,6 +54,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
+    padding: 16,
+    paddingBottom: 50,
+  },
+  search: {
+    flex: 1,
+  },
+  data: {
+    flex: 1,
+    height: 300,
+    width: 400,
+    // justifyContent: "center",
+    alignItems: "center",
+    borderWidth: 2,
+    borderColor: "black",
   },
 });
