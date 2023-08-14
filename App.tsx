@@ -7,6 +7,8 @@ import {
   Button,
   TextInput,
   SafeAreaView,
+  ImageBackground,
+  Image,
 } from "react-native";
 import { Forecast } from "./models";
 import Search from "./components/Search";
@@ -29,39 +31,51 @@ export default function App() {
       });
   };
 
+  const image = {
+    uri: "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
+  };
   useEffect(() => {
     getWeather();
   }, []);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.search}>
-        <Search setCity={setCity} getWeather={getWeather} />
+    <ImageBackground source={image} style={styles.image}>
+      <View style={styles.container}>
+        <View style={styles.search}>
+          <Search setCity={setCity} getWeather={getWeather} />
+        </View>
+        <View style={styles.data}>
+          <Text style={styles.text}>{weatherData?.weather[0].description}</Text>
+          <Text style={styles.text}>{weatherData?.name}</Text>
+          <Text style={styles.text}>{weatherData?.sys.country}</Text>
+        </View>
+        <Image
+          style={styles.imgTest}
+          source={require("./assets/river.jpg")}
+        ></Image>
+        <StatusBar style="auto" />
       </View>
-      <View style={styles.data}>
-        <Text>{weatherData?.weather[0].description}</Text>
-        <Text>{weatherData?.name}</Text>
-        <Text>{weatherData?.sys.country}</Text>
-      </View>
-
-      <StatusBar style="auto" />
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+  },
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "flex-start",
     padding: 16,
     paddingBottom: 50,
+    // backgroundColor: "#fff",
   },
   search: {
     flex: 1,
   },
   data: {
+    color: "white",
     flex: 1,
     height: 300,
     width: 400,
@@ -69,5 +83,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 2,
     borderColor: "black",
+  },
+  text: {
+    color: "white",
+  },
+  imgTest: {
+    width: 200,
+    height: 100,
   },
 });
