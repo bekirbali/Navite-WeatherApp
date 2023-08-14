@@ -29,6 +29,7 @@ export default Search;
 const styles = StyleSheet.create({
   search: {
     backgroundColor: "#7a1818a2",
+    padding: 10,
     alignItems: "center",
     // justifyContent: "center",
   },
