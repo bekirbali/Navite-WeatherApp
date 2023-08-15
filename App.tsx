@@ -17,7 +17,6 @@ import Search from "./components/Search";
 export default function App() {
   const [weatherData, setWeatherData] = useState<Forecast | null>(null);
   const [city, setCity] = useState<string>("paris");
-  // const [loading, setLoading] = useState<boolean>(false);
   const apiKey = process.env.API_KEY;
   const URL_Weather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 

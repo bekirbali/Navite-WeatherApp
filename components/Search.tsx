@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#7a1818a2",
     padding: 10,
     alignItems: "center",
-    // justifyContent: "center",
   },
   textInput: {
     borderWidth: 2,
