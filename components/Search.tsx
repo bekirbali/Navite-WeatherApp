@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import { Button, StyleSheet, TextInput, View } from "react-native";
 
 interface ISearch {
-  setCity: React.Dispatch<React.SetStateAction<string>>;
+  setCity: Dispatch<React.SetStateAction<string>>;
   getWeather: () => void;
 }
 
