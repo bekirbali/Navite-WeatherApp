@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { Forecast } from "./models";
 import Search from "./components/Search";
+import Result from "./components/Result";
 // import { API_KEY } from "@env";
 
 export default function App() {
@@ -47,6 +48,9 @@ export default function App() {
           <Text style={styles.text}>{weatherData?.weather[0].description}</Text>
           <Text style={styles.text}>{weatherData?.name}</Text>
           <Text style={styles.text}>{weatherData?.sys.country}</Text>
+        </View>
+        <View>
+          <Result />
         </View>
         <Image
           style={styles.imgTest}
