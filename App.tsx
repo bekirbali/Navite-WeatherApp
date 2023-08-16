@@ -52,10 +52,6 @@ export default function App() {
         <View>
           <Result />
         </View>
-        <Image
-          style={styles.imgTest}
-          source={require("./assets/river.jpg")}
-        ></Image>
         <StatusBar style="auto" />
       </View>
     </ImageBackground>
