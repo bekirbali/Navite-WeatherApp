@@ -45,12 +45,7 @@ export default function App() {
           <Search setCity={setCity} getWeather={getWeather} />
         </View>
         <View style={styles.data}>
-          <Text style={styles.text}>{weatherData?.weather[0].description}</Text>
-          <Text style={styles.text}>{weatherData?.name}</Text>
-          <Text style={styles.text}>{weatherData?.sys.country}</Text>
-        </View>
-        <View>
-          <Result />
+          <Result weatherData={weatherData} />
         </View>
         <StatusBar style="auto" />
       </View>
@@ -74,20 +69,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   data: {
-    color: "white",
     flex: 1,
-    height: 300,
-    width: 400,
-    // justifyContent: "center",
-    alignItems: "center",
-    borderWidth: 2,
-    borderColor: "black",
   },
   text: {
     color: "white",
-  },
-  imgTest: {
-    width: 200,
-    height: 100,
   },
 });
