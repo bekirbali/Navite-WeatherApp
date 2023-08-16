@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     color: "white",
     height: 300,
     width: 400,
-    // justifyContent: "center",
     alignItems: "center",
     borderWidth: 2,
     borderColor: "black",
