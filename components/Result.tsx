@@ -1,4 +1,5 @@
-import { Text, View, StyleSheet } from "react-native";
+import * as React from "react";
+import { Text, View, StyleSheet, Image } from "react-native";
 import { Forecast } from "../models";
 
 interface IResult {
@@ -11,6 +12,10 @@ const Result: React.FC<IResult> = ({ weatherData }) => {
       <Text style={styles.text}>{weatherData?.weather[0].description}</Text>
       <Text style={styles.text}>{weatherData?.name}</Text>
       <Text style={styles.text}>{weatherData?.sys.country}</Text>
+      <Image
+        source={require("../assets/50n.svg")}
+        style={{ height: 100, width: 100, backgroundColor: "#ffffffa2" }}
+      />
     </View>
   );
 };

@@ -13,7 +13,7 @@ import {
 import { Forecast } from "./models";
 import Search from "./components/Search";
 import Result from "./components/Result";
-// import { API_KEY } from "@env";
+import { SvgUri } from "react-native-svg";
 
 export default function App() {
   const [weatherData, setWeatherData] = useState<Forecast | null>(null);
@@ -31,7 +31,7 @@ export default function App() {
       });
   };
 
-  const image = {
+  const backGroundImage = {
     uri: "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
   };
   useEffect(() => {
@@ -39,13 +39,16 @@ export default function App() {
   }, []);
 
   return (
-    <ImageBackground source={image} style={styles.image}>
+    <ImageBackground source={backGroundImage} style={styles.image}>
       <View style={styles.container}>
         <View style={styles.search}>
           <Search setCity={setCity} getWeather={getWeather} />
         </View>
         <View style={styles.data}>
           <Result weatherData={weatherData} />
+        </View>
+        <View>
+          <SvgUri width="100px" height="100px" uri="./assets/50n.svg" />
         </View>
         <StatusBar style="auto" />
       </View>
