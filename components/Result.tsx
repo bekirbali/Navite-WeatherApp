@@ -16,7 +16,6 @@ const Result: React.FC<IResult> = ({ weatherData }) => {
         source={{
           uri: `https://openweathermap.org/img/wn/${weatherData?.weather[0].icon}@2x.png`,
         }}
-        style={{ height: 100, width: 100, backgroundColor: "#ffffffa2" }}
       />
     </View>
   );
