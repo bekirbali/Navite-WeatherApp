@@ -11,7 +11,7 @@ import {
   Image,
 } from "react-native";
 import { Forecast } from "./models";
-import Search from "./components/Search";
+import Search from "./pages/Search";
 import Result from "./components/Result";
 import { SvgUri } from "react-native-svg";
 
