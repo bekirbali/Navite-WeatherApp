@@ -1,7 +1,13 @@
 import React from "react";
+import { View } from "react-native";
+import Result from "../components/Result";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <View>
+      <Result />
+    </View>
+  );
 };
 
 export default Home;
