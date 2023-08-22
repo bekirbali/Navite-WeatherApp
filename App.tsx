@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     padding: 16,
     paddingBottom: 50,
-    // backgroundColor: "#fff",
   },
   search: {
     flex: 1,
