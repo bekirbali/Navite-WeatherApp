@@ -74,6 +74,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   text: {
-    color: "gray",
+    color: "graywa",
   },
 });
