@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import Result from "../components/Result";
 import { Forecast } from "../models";
+import Search from "./Search";
 
 interface IHome {
   weatherData: Forecast | null;
@@ -9,8 +10,13 @@ interface IHome {
 
 const Home: React.FC<IHome> = ({ weatherData }) => {
   return (
-    <View style={styles.data}>
-      <Result weatherData={weatherData} />
+    <View>
+      <View>
+        <Search />
+      </View>
+      <View style={styles.data}>
+        <Result weatherData={weatherData} />
+      </View>
     </View>
   );
 };
