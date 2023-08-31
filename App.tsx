@@ -7,6 +7,8 @@ import Result from "./components/Result";
 import { SvgUri } from "react-native-svg";
 import Home from "./pages/Home";
 
+import { NavigationContainer } from "@react-navigation/native";
+
 export default function App() {
   const [weatherData, setWeatherData] = useState<Forecast | null>(null);
   const [city, setCity] = useState<string>("paris");
@@ -31,15 +33,17 @@ export default function App() {
   }, []);
 
   return (
-    <ImageBackground source={backGroundImage} style={styles.image}>
-      <View style={styles.container}>
-        <Home />
-        {/* <View>
+    <NavigationContainer>
+      <ImageBackground source={backGroundImage} style={styles.image}>
+        <View style={styles.container}>
+          <Home />
+          {/* <View>
           <SvgUri width="100px" height="100px" uri="./assets/50n.svg" />
         </View> */}
-        <StatusBar style="auto" />
-      </View>
-    </ImageBackground>
+          <StatusBar style="auto" />
+        </View>
+      </ImageBackground>
+    </NavigationContainer>
   );
 }
 
