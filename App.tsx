@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { StyleSheet, View, ImageBackground, Image } from "react-native";
 import { Forecast } from "./models";
 import Search from "./pages/Search";
-import Result from "./components/Result";
+import Result from "./pages/Result";
 import { SvgUri } from "react-native-svg";
 import Home from "./pages/Home";
 
