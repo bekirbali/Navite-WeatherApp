@@ -4,11 +4,13 @@ import { Button, StyleSheet, TextInput, View } from "react-native";
 interface ISearch {
   setCity: Dispatch<React.SetStateAction<string>>;
   getWeather: () => void;
+  navigation: any;
 }
 
-const Search: React.FC<ISearch> = ({ setCity, getWeather }) => {
+const Search: React.FC<ISearch> = ({ setCity, getWeather, navigation }) => {
   const onPressHandler = () => {
     getWeather();
+    navigation.navigate("Result");
     setCity("");
   };
 
