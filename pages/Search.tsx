@@ -21,7 +21,7 @@ const Search: React.FC<ISearch> = ({ setCity, getWeather, navigation }) => {
         placeholder="Search a city"
         onChangeText={setCity}
       />
-      <Button title="test" onPress={onPressHandler} />
+      <Button title="Search" onPress={onPressHandler} />
     </View>
   );
 };

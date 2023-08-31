@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Button, Text } from "react-native";
 import Result from "./Result";
 import { Forecast } from "../models";
 import Search from "./Search";
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
@@ -27,21 +28,25 @@ const Home = () => {
     getWeather();
   }, []);
   return (
-    <View>
+    <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="Search"
-          component={Search}
-          options={{ title: "Welcome" }}
-        />
-        {/* <View style={styles.search}>
-          <Search setCity={setCity} getWeather={getWeather} />
-        </View> */}
+        <Stack.Screen name="Result">
+          {(props) => <Result {...props} weatherData={weatherData} />}
+        </Stack.Screen>
+        <Stack.Screen name="Search">
+          {(props) => (
+            <Search {...props} setCity={setCity} getWeather={getWeather} />
+          )}
+        </Stack.Screen>
       </Stack.Navigator>
-      <View style={styles.data}>
-        <Result weatherData={weatherData} />
-      </View>
-    </View>
+      {/* <View style={styles.search}>
+            <Search setCity={setCity} getWeather={getWeather} />
+          </View> */}
+
+      {/* <View style={styles.data}>
+          <Result weatherData={weatherData} />
+        </View> */}
+    </NavigationContainer>
   );
 };
 
@@ -50,6 +55,8 @@ export default Home;
 const styles = StyleSheet.create({
   data: {
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   search: {
     flex: 1,
