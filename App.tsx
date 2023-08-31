@@ -5,6 +5,7 @@ import { Forecast } from "./models";
 import Search from "./pages/Search";
 import Result from "./components/Result";
 import { SvgUri } from "react-native-svg";
+import Home from "./pages/Home";
 
 export default function App() {
   const [weatherData, setWeatherData] = useState<Forecast | null>(null);
@@ -32,15 +33,10 @@ export default function App() {
   return (
     <ImageBackground source={backGroundImage} style={styles.image}>
       <View style={styles.container}>
-        <View style={styles.search}>
-          <Search setCity={setCity} getWeather={getWeather} />
-        </View>
-        <View style={styles.data}>
-          <Result weatherData={weatherData} />
-        </View>
-        <View>
+        <Home />
+        {/* <View>
           <SvgUri width="100px" height="100px" uri="./assets/50n.svg" />
-        </View>
+        </View> */}
         <StatusBar style="auto" />
       </View>
     </ImageBackground>
