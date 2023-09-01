@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import { StyleSheet, View, ImageBackground, Image } from "react-native";
+import { StyleSheet, View, ImageBackground, Image, Text } from "react-native";
 import { Forecast } from "./models";
 import Search from "./pages/Search";
 import Result from "./pages/Result";
@@ -37,11 +37,14 @@ export default function App() {
 
   return (
     <ImageBackground source={backGroundImage} style={styles.image}>
-      <Home />
-      {/* <View>
+      <View style={styles.container}>
+        <Home />
+
+        {/* <View>
           <SvgUri width="100px" height="100px" uri="./assets/50n.svg" />
         </View> */}
-      <StatusBar style="auto" />
+        <StatusBar style="auto" />
+      </View>
     </ImageBackground>
   );
 }
@@ -49,21 +52,20 @@ export default function App() {
 const styles = StyleSheet.create({
   image: {
     flex: 1,
+    // justifyContent: "center",
+    // alignItems: "center",
   },
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-end",
     padding: 16,
     paddingBottom: 50,
+    borderWidth: 3,
+    borderColor: "white",
+    // backgroundColor: "red",
   },
-  search: {
-    flex: 1,
-  },
-  data: {
-    flex: 1,
-  },
-  text: {
-    color: "gray",
+  test: {
+    color: "white",
+    fontSize: 30,
+    fontWeight: "bold",
   },
 });

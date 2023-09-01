@@ -29,11 +29,18 @@ const Home = () => {
   }, []);
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShadowVisible: false,
+        }}
+      >
         <Stack.Screen
           name="Result"
           options={{
             title: `${weatherData ? weatherData?.name : "loading..."}`,
+            headerStyle: { backgroundColor: "red" },
+            headerShadowVisible: false,
+            headerTitleAlign: "center",
           }}
         >
           {(props) => <Result {...props} weatherData={weatherData} />}
@@ -58,12 +65,8 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-  data: {
+  home: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  search: {
-    flex: 1,
+    backgroundColor: "blue",
   },
 });
