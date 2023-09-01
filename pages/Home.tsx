@@ -30,7 +30,12 @@ const Home = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Result">
+        <Stack.Screen
+          name="Result"
+          options={{
+            title: `${weatherData ? weatherData?.name : "loading..."}`,
+          }}
+        >
           {(props) => <Result {...props} weatherData={weatherData} />}
         </Stack.Screen>
         <Stack.Screen name="Search">
