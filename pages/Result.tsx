@@ -1,11 +1,12 @@
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, Button } from "react-native";
 import { Forecast } from "../models";
 
 interface IResult {
   weatherData: Forecast | null;
+  navigation: any;
 }
 
-const Result: React.FC<IResult> = ({ weatherData }) => {
+const Result: React.FC<IResult> = ({ weatherData, navigation }) => {
   return (
     <View style={styles.result}>
       <Text style={styles.text}>{weatherData?.weather[0].description}</Text>
@@ -16,6 +17,7 @@ const Result: React.FC<IResult> = ({ weatherData }) => {
           uri: `https://openweathermap.org/img/wn/${weatherData?.weather[0].icon}@2x.png`,
         }}
       />
+      <Button title="Search" onPress={() => navigation.navigate("Search")} />
     </View>
   );
 };

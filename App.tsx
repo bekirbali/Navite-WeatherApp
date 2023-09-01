@@ -8,6 +8,9 @@ import { SvgUri } from "react-native-svg";
 import Home from "./pages/Home";
 
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [weatherData, setWeatherData] = useState<Forecast | null>(null);
@@ -33,17 +36,13 @@ export default function App() {
   }, []);
 
   return (
-    <NavigationContainer>
-      <ImageBackground source={backGroundImage} style={styles.image}>
-        <View style={styles.container}>
-          <Home />
-          {/* <View>
+    <ImageBackground source={backGroundImage} style={styles.image}>
+      <Home />
+      {/* <View>
           <SvgUri width="100px" height="100px" uri="./assets/50n.svg" />
         </View> */}
-          <StatusBar style="auto" />
-        </View>
-      </ImageBackground>
-    </NavigationContainer>
+      <StatusBar style="auto" />
+    </ImageBackground>
   );
 }
 
