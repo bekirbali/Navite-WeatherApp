@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,7 @@ export default function App() {
   const [weatherData, setWeatherData] = useState<Forecast | null>(null);
   const [city, setCity] = useState<string>("paris");
   const apiKey = process.env.API_KEY;
-  const URL_Weather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+  const URL_Weather = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   const getWeather = async () => {
     await fetch(URL_Weather)
@@ -37,14 +38,14 @@ export default function App() {
 
   return (
     <ImageBackground source={backGroundImage} style={styles.image}>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Home />
 
         {/* <View>
           <SvgUri width="100px" height="100px" uri="./assets/50n.svg" />
         </View> */}
         <StatusBar style="auto" />
-      </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 }
@@ -57,10 +58,9 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    padding: 16,
-    paddingBottom: 50,
-    borderWidth: 3,
-    borderColor: "white",
+    // borderWidth: 3,
+    // borderColor: "white",
+    // width: "50%",
     // backgroundColor: "red",
   },
   test: {
