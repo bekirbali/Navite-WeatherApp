@@ -21,13 +21,21 @@ const Result: React.FC<IResult> = ({ weatherData, navigation }) => {
   return (
     <ImageBackground source={backGroundImage} style={styles.background}>
       <View style={styles.result}>
-        <Text style={[styles.text, styles.cityName]}>{weatherData?.name}</Text>
-        <Text style={[styles.text, styles.countryName]}>
-          {weatherData?.sys?.country}
-        </Text>
-        <View style={{ flexDirection: "row" }}>
+        <View style={styles.topBar}>
+          <Button
+            title="Search"
+            onPress={() => navigation.navigate("Search")}
+          />
+          <Text style={[styles.text, styles.cityName]}>
+            {weatherData?.name}
+          </Text>
+          <Text style={[styles.text, styles.countryName]}>
+            {weatherData?.sys?.country}
+          </Text>
+        </View>
+        <View style={styles.mainTemp}>
           <Text style={[styles.text, styles.temp]}>
-            {weatherData?.main?.temp?.toFixed(1)}{" "}
+            {weatherData?.main?.temp?.toFixed(1)}
           </Text>
           <Text style={styles.super}>℃</Text>
         </View>
@@ -38,7 +46,6 @@ const Result: React.FC<IResult> = ({ weatherData, navigation }) => {
             uri: `https://openweathermap.org/img/wn/${weatherData?.weather[0].icon}@2x.png`,
           }}
         />
-        <Button title="Search" onPress={() => navigation.navigate("Search")} />
       </View>
     </ImageBackground>
   );
@@ -52,14 +59,15 @@ const styles = StyleSheet.create({
     color: "white",
     height: 300,
     width: "100%",
-    // alignItems: "center",
     // backgroundColor: "#7a181889",
     alignItems: "center",
   },
+  topBar: {
+    flexDirection: "row",
+  },
   text: {
     fontSize: 20,
-    textAlign: "center",
-    margin: "auto",
+    textAlign: "right",
     color: "white",
   },
   background: {
@@ -74,14 +82,24 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 60,
   },
+  mainTemp: {
+    flexDirection: "row",
+    justifyContent: "center",
+    // alignItems: "center",
+  },
   temp: {
     fontSize: 80,
     fontWeight: "500",
+    borderWidth: 2,
+    borderColor: "white",
   },
   super: {
     fontWeight: "500",
     fontSize: 35,
     lineHeight: 45,
     color: "white",
+    borderWidth: 2,
+    borderColor: "white",
+    textAlign: "center",
   },
 });
