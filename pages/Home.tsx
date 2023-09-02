@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, Button, Text } from "react-native";
+import { StyleSheet, View, Button, Text, ImageBackground } from "react-native";
 import Result from "./Result";
 import { Forecast } from "../models";
 import Search from "./Search";
@@ -22,6 +22,10 @@ const Home = () => {
 
         return console.log(weatherData);
       });
+  };
+
+  const backGroundImage = {
+    uri: "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80",
   };
 
   useEffect(() => {
