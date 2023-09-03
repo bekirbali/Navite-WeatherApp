@@ -49,22 +49,8 @@ const Home = () => {
           )}
         </Stack.Screen>
       </Stack.Navigator>
-      {/* <View style={styles.search}>
-            <Search setCity={setCity} getWeather={getWeather} />
-          </View> */}
-
-      {/* <View style={styles.data}>
-          <Result weatherData={weatherData} />
-        </View> */}
     </NavigationContainer>
   );
 };
 
 export default Home;
-
-const styles = StyleSheet.create({
-  home: {
-    flex: 1,
-    backgroundColor: "blue",
-  },
-});

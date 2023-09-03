@@ -35,6 +35,12 @@ const Result: React.FC<IResult> = ({ weatherData, navigation }) => {
             </Text>
           </View>
         </View>
+        <Image
+          style={{ width: 200, height: 200 }}
+          source={{
+            uri: `https://openweathermap.org/img/wn/${weatherData?.weather[0].icon}@2x.png`,
+          }}
+        />
         <View style={styles.mainTemp}>
           <Text style={[styles.text, styles.temp]}>
             {weatherData?.main?.temp?.toFixed(1)}
@@ -42,12 +48,6 @@ const Result: React.FC<IResult> = ({ weatherData, navigation }) => {
           <Text style={styles.super}>℃</Text>
         </View>
         <Text style={styles.text}>{weatherData?.weather[0]?.description}</Text>
-        <Image
-          style={{ width: 100, height: 100 }}
-          source={{
-            uri: `https://openweathermap.org/img/wn/${weatherData?.weather[0].icon}@2x.png`,
-          }}
-        />
       </View>
     </ImageBackground>
   );
@@ -61,15 +61,12 @@ const styles = StyleSheet.create({
     color: "white",
     height: 300,
     width: "100%",
-    // backgroundColor: "#7a181889",
     alignItems: "center",
     justifyContent: "center",
   },
   topBar: {
     flexDirection: "row",
     alignItems: "center",
-    // borderWidth: 2,
-    // borderColor: "white",
     width: "50%",
     position: "absolute",
     left: 0,
@@ -106,7 +103,7 @@ const styles = StyleSheet.create({
     // marginTop: 80,
   },
   temp: {
-    fontSize: 80,
+    fontSize: 60,
     fontWeight: "500",
     borderWidth: 2,
     borderColor: "white",
