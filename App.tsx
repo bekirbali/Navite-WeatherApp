@@ -44,7 +44,7 @@ export default function App() {
         {/* <View>
           <SvgUri width="100px" height="100px" uri="./assets/50n.svg" />
         </View> */}
-        <StatusBar style="auto" />
+        <StatusBar style="light" />
       </SafeAreaView>
     </ImageBackground>
   );

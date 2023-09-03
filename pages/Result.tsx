@@ -5,6 +5,7 @@ import {
   Image,
   Button,
   ImageBackground,
+  TouchableOpacity,
 } from "react-native";
 import { Forecast } from "../models";
 
@@ -22,16 +23,17 @@ const Result: React.FC<IResult> = ({ weatherData, navigation }) => {
     <ImageBackground source={backGroundImage} style={styles.background}>
       <View style={styles.result}>
         <View style={styles.topBar}>
-          <Button
-            title="Search"
-            onPress={() => navigation.navigate("Search")}
-          />
-          <Text style={[styles.text, styles.cityName]}>
-            {weatherData?.name}
-          </Text>
-          <Text style={[styles.text, styles.countryName]}>
-            {weatherData?.sys?.country}
-          </Text>
+          <TouchableOpacity onPress={() => navigation.navigate("Search")}>
+            <Text style={{ color: "white", marginLeft: 10 }}>Search</Text>
+          </TouchableOpacity>
+          <View style={styles.place}>
+            <Text style={[styles.text, styles.cityName]}>
+              {weatherData?.name}
+            </Text>
+            <Text style={[styles.text, styles.countryName]}>
+              {weatherData?.sys?.country}
+            </Text>
+          </View>
         </View>
         <View style={styles.mainTemp}>
           <Text style={[styles.text, styles.temp]}>
@@ -61,9 +63,24 @@ const styles = StyleSheet.create({
     width: "100%",
     // backgroundColor: "#7a181889",
     alignItems: "center",
+    justifyContent: "center",
   },
   topBar: {
     flexDirection: "row",
+    alignItems: "center",
+    // borderWidth: 2,
+    // borderColor: "white",
+    width: "50%",
+    position: "absolute",
+    left: 0,
+    top: 0,
+    justifyContent: "space-between",
+    padding: 10,
+  },
+  place: {
+    flexDirection: "row",
+    position: "absolute",
+    right: "-35%",
   },
   text: {
     fontSize: 20,
@@ -80,12 +97,13 @@ const styles = StyleSheet.create({
   countryName: {
     fontSize: 14,
     fontWeight: "bold",
-    marginBottom: 60,
+    marginBottom: 16,
   },
   mainTemp: {
     flexDirection: "row",
     justifyContent: "center",
     // alignItems: "center",
+    // marginTop: 80,
   },
   temp: {
     fontSize: 80,
