@@ -20,34 +20,49 @@ const Result: React.FC<IResult> = ({ weatherData, navigation }) => {
   };
 
   return (
-    <ImageBackground source={backGroundImage} style={styles.background}>
+    <ImageBackground
+      source={backGroundImage}
+      style={styles.background}
+      blurRadius={100}
+    >
       <View style={styles.result}>
-        <View style={styles.topBar}>
-          <TouchableOpacity onPress={() => navigation.navigate("Search")}>
-            <Text style={{ color: "white", marginLeft: 10 }}>Search</Text>
-          </TouchableOpacity>
-          <View style={styles.place}>
-            <Text style={[styles.text, styles.cityName]}>
-              {weatherData?.name}
-            </Text>
-            <Text style={[styles.text, styles.countryName]}>
-              {weatherData?.sys?.country}
-            </Text>
-          </View>
-        </View>
-        <Image
-          style={{ width: 200, height: 200 }}
-          source={{
-            uri: `https://openweathermap.org/img/wn/${weatherData?.weather[0].icon}@2x.png`,
+        <TouchableOpacity
+          onPress={() => {
+            console.log("search");
+            return navigation.navigate("Search");
           }}
-        />
-        <View style={styles.mainTemp}>
-          <Text style={[styles.text, styles.temp]}>
-            {weatherData?.main?.temp?.toFixed(1)}
+          style={styles.searchButton}
+        >
+          <Text style={styles.searchText}>Search</Text>
+        </TouchableOpacity>
+        <View style={styles.topBar}>
+          <Text style={[styles.text, styles.cityName]}>
+            {weatherData?.name}
           </Text>
-          <Text style={styles.super}>℃</Text>
+          <Text style={[styles.text, styles.countryName]}>
+            {weatherData?.sys?.country}
+          </Text>
         </View>
-        <Text style={styles.text}>{weatherData?.weather[0]?.description}</Text>
+        <View style={styles.bottomSide}>
+          <Image
+            style={{
+              width: 200,
+              height: 200,
+            }}
+            source={{
+              uri: `https://openweathermap.org/img/wn/${weatherData?.weather[0].icon}@2x.png`,
+            }}
+          />
+          <View style={styles.mainTemp}>
+            <Text style={[styles.text, styles.temp]}>
+              {weatherData?.main?.temp?.toFixed(1)}
+            </Text>
+            <Text style={styles.super}>℃</Text>
+          </View>
+          <Text style={styles.text}>
+            {weatherData?.weather[0]?.description}
+          </Text>
+        </View>
       </View>
     </ImageBackground>
   );
@@ -63,21 +78,30 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
+    position: "relative",
   },
   topBar: {
     flexDirection: "row",
     alignItems: "center",
-    width: "50%",
+    justifyContent: "center",
     position: "absolute",
-    left: 0,
-    top: 0,
-    justifyContent: "space-between",
-    padding: 10,
+    top: 10,
+    width: "100%",
   },
-  place: {
-    flexDirection: "row",
+  searchButton: {
+    color: "white",
+    width: 50,
+    height: 50,
     position: "absolute",
-    right: "-35%",
+    top: 10,
+    left: 0,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 50,
+  },
+  searchText: {
+    color: "white",
   },
   text: {
     fontSize: 20,
@@ -95,26 +119,25 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
     marginBottom: 16,
+    marginLeft: 4,
   },
   mainTemp: {
     flexDirection: "row",
     justifyContent: "center",
-    // alignItems: "center",
-    // marginTop: 80,
   },
   temp: {
     fontSize: 60,
     fontWeight: "500",
-    borderWidth: 2,
-    borderColor: "white",
   },
   super: {
     fontWeight: "500",
-    fontSize: 35,
-    lineHeight: 45,
     color: "white",
-    borderWidth: 2,
-    borderColor: "white",
-    textAlign: "center",
+    fontSize: 35,
+    position: "absolute",
+    right: -30,
+  },
+  bottomSide: {
+    alignItems: "center",
+    marginBottom: 150,
   },
 });
