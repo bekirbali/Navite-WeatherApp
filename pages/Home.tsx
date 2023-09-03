@@ -32,6 +32,7 @@ const Home = () => {
       <Stack.Navigator
         screenOptions={{
           headerShadowVisible: false,
+          headerTransparent: true,
         }}
       >
         <Stack.Screen
@@ -43,9 +44,20 @@ const Home = () => {
         >
           {(props) => <Result {...props} weatherData={weatherData} />}
         </Stack.Screen>
-        <Stack.Screen name="Search">
+        <Stack.Screen
+          name="Search"
+          options={{
+            headerTintColor: "white",
+            headerTitle: "",
+          }}
+        >
           {(props) => (
-            <Search {...props} setCity={setCity} getWeather={getWeather} />
+            <Search
+              {...props}
+              setCity={setCity}
+              getWeather={getWeather}
+              city={city}
+            />
           )}
         </Stack.Screen>
       </Stack.Navigator>
