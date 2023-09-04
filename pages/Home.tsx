@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, Button, Text } from "react-native";
 import Result from "./Result";
 import { Forecast } from "../models";
 import Search from "./Search";
