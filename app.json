@@ -6,14 +6,19 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "permissions": [
+      "CAMERA",
+      "LOCATION",
+      "NOTIFICATIONS",
+      "INTERNET",
+      "ACCESS_NETWORK_STATE"
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -22,7 +27,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.bekir43.WeatherForecast"
+      "package": "com.bekir43.WeatherForecast",
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"

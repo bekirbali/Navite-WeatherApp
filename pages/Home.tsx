@@ -23,6 +23,7 @@ const Home = () => {
           setWeatherData(data);
         });
       setLoading(false);
+      console.log(weatherData);
     } catch (error) {
       console.log(error);
     }
