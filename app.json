@@ -27,8 +27,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.bekir43.WeatherForecast",
-      "permissions": []
+      "package": "com.bekir43.WeatherForecast"
     },
     "web": {
       "favicon": "./assets/favicon.png"
