@@ -38,6 +38,7 @@ const Result: React.FC<IResult> = ({ weatherData, navigation }) => {
         <View style={styles.topBar}>
           <Text style={[styles.text, styles.cityName]}>
             {weatherData?.name}
+            {/* {weatherData?.sys?.country} */}
           </Text>
           <Text style={[styles.text, styles.countryName]}>
             {weatherData?.sys?.country}
@@ -48,6 +49,8 @@ const Result: React.FC<IResult> = ({ weatherData, navigation }) => {
             style={{
               width: 200,
               height: 200,
+              borderWidth: 2,
+              borderColor: "white",
             }}
             source={{
               uri: `https://openweathermap.org/img/wn/${weatherData?.weather[0].icon}@2x.png`,
@@ -87,6 +90,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 10,
     width: "100%",
+    borderColor: "white",
+    borderWidth: 2,
   },
   searchButton: {
     color: "white",
@@ -114,6 +119,8 @@ const styles = StyleSheet.create({
   cityName: {
     fontSize: 36,
     fontWeight: "bold",
+    borderColor: "white",
+    borderWidth: 2,
   },
   countryName: {
     fontSize: 14,
