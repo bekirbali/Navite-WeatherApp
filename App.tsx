@@ -1,5 +1,4 @@
 import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 import { SvgUri } from "react-native-svg";
 import Home from "./pages/Home";
