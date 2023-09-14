@@ -1,4 +1,4 @@
-# React Native
+# React Native Expo
 
 ## Weather App with React Native
 
