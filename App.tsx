@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
-import { SvgUri } from "react-native-svg";
+// import { SvgUri } from "react-native-svg";
 import Home from "./pages/Home";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -8,9 +8,11 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Home />
+      {/* 
+      TO LEARN HOW TO USE SVG URI
       <View>
         <SvgUri width="100px" height="100px" uri="./assets/50n.svg" />
-      </View>
+      </View> */}
       <StatusBar style="auto" />
     </SafeAreaView>
   );
