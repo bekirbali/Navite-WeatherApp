@@ -25,9 +25,4 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  test: {
-    color: "white",
-    fontSize: 30,
-    fontWeight: "bold",
-  },
 });
